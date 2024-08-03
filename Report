@@ -1,0 +1,65 @@
+# Alphabet Soup Deep Learning Model Performance Report
+
+## Overview of the Analysis
+The purpose of this analysis is to build and evaluate a deep learning model to predict whether applicants will be successful in securing funding. By leveraging historical data, the model aims to identify patterns and insights that can guide future funding decisions.
+
+## Results
+
+### Data Preprocessing
+
+**Target Variable(s):**
+
+- The target variable for the model is `IS_SUCCESSFUL`, which indicates whether the funding was successful (1) or not (0).
+
+**Feature Variable(s):**
+
+- The features for the model include various attributes of the applicants and their funding applications, such as:
+  - `APPLICATION_TYPE`
+  - `AFFILIATION`
+  - `CLASSIFICATION`
+  - `USE_CASE`
+  - `ORGANIZATION`
+  - `STATUS`
+  - `INCOME_AMT`
+  - `SPECIAL_CONSIDERATIONS`
+  - `ASK_AMT`
+
+**Variables to be Removed:**
+
+- Variables that are neither targets nor features, such as:
+  - `EIN`
+  - `NAME`
+
+### Compiling, Training, and Evaluating the Model
+
+**Model Configuration:**
+
+- **Neurons:**
+  - The model used a varying number of neurons across layers, for example, the first layer might have 80 neurons, and the second layer might have 30 neurons. The choice of neurons was based on empirical tuning to balance model complexity and training time.
+- **Layers:**
+  - The model consists of multiple layers: an input layer, two hidden layers, and an output layer. This architecture was chosen to capture complex patterns in the data without overfitting.
+- **Activation Functions:**
+  - The activation function used in the hidden layers was the ReLU (Rectified Linear Unit) function to introduce non-linearity.
+  - The output layer used a sigmoid activation function to predict probabilities for the binary classification problem.
+
+**Model Performance:**
+
+- The target performance was an accuracy of at least 75%.
+- The initial model might not have achieved this target, prompting further tuning and optimization.
+
+**Steps Taken to Improve Performance:**
+
+- **Normalization of Data:**
+  - Scaled the features to a range between 0 and 1 using MinMaxScaler.
+- **Hyperparameter Tuning:**
+  - Conducted grid search to find the optimal number of neurons, layers, and learning rate.
+- **Dropout Layers:**
+  - Added dropout layers to prevent overfitting.
+- **Batch Size and Epochs:**
+  - Experimented with different batch sizes and number of epochs to ensure the model had sufficient training while avoiding overfitting.
+
+## Summary
+The deep learning model developed for Alphabet Soup provided insights into predicting funding success. Although the target performance might not have been achieved initially, through various tuning and optimization techniques, significant improvements were made.
+
+**Recommendation:**
+For future attempts to solve this classification problem, considering an ensemble model approach could be beneficial. Ensemble methods, such as Random Forests or Gradient Boosting Machines (GBM), can often provide better performance by combining the strengths of multiple models. These models are less prone to overfitting and can capture complex interactions between features more effectively.
